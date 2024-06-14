@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gospel Music Playlist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .playlist-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .playlist {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .playlist li {
+            cursor: pointer;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #eee;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            width: 200px;
+        }
+        .playlist li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .playlist li img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="logo.png" alt="Logo" width="200">
+        <h1>Gospel Music Playlist</h1>
+        <p>Welcome to our uplifting gospel music collection!</p>
+    </div>
+
+    <div class="container">
+        <h2 class="playlist-title">Choose a Song:</h2>
+        <ul class="playlist">
+            <li data-src="https://example.com/song1.mp3">
+                <img src="singer1.jpg" alt="Singer 1">
+                <p>Song 1 - Artist Name 1</p>
+            </li>
+            <li data-src="https://example.com/song2.mp3">
+                <img src="singer2.jpg" alt="Singer 2">
+                <p>Song 2 - Artist Name 2</p>
+            </li>
+            <li data-src="https://example.com/song3.mp3">
+                <img src="singer3.jpg" alt="Singer 3">
+                <p>Song 3 - Artist Name 3</p>
+            </li>
+            <!-- Add more songs as needed -->
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Gospel Music Playlist. All rights reserved.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const playlistItems = document.querySelectorAll('.playlist li');
+
+            playlistItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const audioSrc = this.getAttribute('data-src');
+                    playAudio(audioSrc);
+                });
+            });
+
+            function playAudio(src) {
+                const audioPlayer = new Audio();
+                audioPlayer.src = src;
+                audioPlayer.play();
+            }
+        });
+    </script>
+</body>
+</html>
